@@ -2,6 +2,11 @@
 
 ![Design preview for the News homepage coding challenge](./design/desktop-preview.jpg)
 
+
+## Deploying your project
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98943866-d56b-4ff1-a41d-0a11f3415884/deploy-status)](https://app.netlify.com/sites/new-homepage-main-jasmine-site/deploys)
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
@@ -114,10 +119,6 @@ Include the compiled CSS in your HTML:
 JASMINE KAUR @ 2025
 
 
-
-## Deploying your project
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/98943866-d56b-4ff1-a41d-0a11f3415884/deploy-status)](https://app.netlify.com/sites/new-homepage-main-jasmine-site/deploys)
 
 
 ## Create a custom `README.md`

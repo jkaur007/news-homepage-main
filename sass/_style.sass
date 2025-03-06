@@ -1,0 +1,607 @@
+@use './_colors' as *;
+@use './_font' as *;
+// Import Bootstrap functions and variables first
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Now import Bootstrap styles
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $white;
+    font-family: "Arial", sans-serif;
+    position: relative;
+}
+
+.wrapper {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 200;
+
+        &.active {
+            display: block;
+        }
+}
+
+img {
+    display: block;
+    font-style: italic;
+}
+
+.nav {
+    position: relative;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+    }
+
+    &__links-desktop {
+        display: none;
+    }
+    &__links-mobile {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5em;
+        transform: translateX(150%);
+        background-color: $white;
+        z-index: 210;
+        transition: transform .3s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+            &.active {
+                transform: translateX(0)
+            }
+    }
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: $veryDarkBlue;
+        font-size: 2.3rem;
+        transition: color .3s;
+
+            &:hover {
+                color: $accentColor;
+            }
+        
+    }
+    &__logo {
+        padding: 1em;
+        z-index: 200;
+    }
+    &__burger-btn {
+        position: absolute;
+        padding: 1em;
+        top: 1.7em;
+        right: 2em;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: none;
+        z-index: 250;
+
+            &:focus-visible {
+                border: 1px solid $veryDarkBlue;
+            }
+
+    }
+    &__burger-btn-box {
+        position: relative;
+        width: 50px;
+        height: 30px;
+    }
+    &__burger-btn-bar {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: $veryDarkBlue;
+        transition: transform .3s, opacity .2s;
+
+            &--top {
+                top: 0;
+            }
+            &--middle {
+                top: 12px;
+            }
+            &--bottom {
+                top: 24px;
+            }
+    }
+
+
+}
+
+
+// HEADER
+
+.header {
+
+  .line {
+    position: relative;
+    width: 100%;
+    margin: 5em auto;
+    background-color: $lightBlue;
+    height: 1px;
+  }
+  .square {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: $gold;
+        &--left {
+            left: 6em;
+        }
+        &--right {
+            right: 6em;
+        }
+  }
+
+    .wrapper {
+        padding: 1em 2em;
+    }
+
+    &__img {
+        width: 100%;
+        max-height: 350px;
+        object-fit: cover;
+        object-position: center;
+
+            &--desktop {
+                display: none;
+            }
+    }
+
+    &__content-left {
+        margin-block-end: 6em;
+    }
+
+    &__content-left-title {
+        font-size: 1.7rem;
+        color: $veryDarkBlue;
+        padding: 1em 0;
+
+            h1 {
+                font-weight: 800;
+            }
+    }
+    &__content-left-info {
+        font-size: 1.6rem;
+        line-height: 25px;
+        font-weight: 400;
+        color: $darkBlue;
+    }
+    &__btn {
+        display: block;
+        padding: 1em 2em;
+        margin-block-start: 1.5em;
+        min-width: fit-content;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 600;
+        color: $veryDarkBlue;
+        outline: none;
+        border: none;
+        background-color: $accentColor;
+        cursor: pointer;
+        transition: color .3s, background-color .3s;
+
+            &:hover, &:focus-visible {
+                background-color: $veryDarkBlue;
+                color: $white;
+            }
+    }
+
+    &__content-right {
+        padding: 3em;
+        background-color: $veryDarkBlue;
+    }
+    &__content-right-main-title {
+        font-size: 3rem;
+        color: $gold;
+        margin-block-end: .5em;
+    }
+    &__content-right-title {
+        display: block;
+        margin-block-end: .8em;
+        text-decoration: none;
+        font-size: 1.7rem;
+        color: $white;
+        outline: none;
+        font-weight: 500;
+        transition: color .3s;
+
+            &:hover, &:focus-visible {
+                color: $gold;
+            }
+    }
+    &__content-right-text {
+        font-size: 1.5rem;
+        color: $lightBlue;
+        font-weight: 400;
+        line-height: 25px;
+    }
+}
+
+
+// CARDS SECTION
+
+.cards {
+    padding: 3em 2em 5em;
+
+        &__card {
+            margin-block-end: 3em;
+            display: flex;
+            align-items: center;
+        }
+        &__card-img {
+            width: 50%;
+            max-height: 150px;
+            max-width: 120px;
+        }
+        &__card-body {
+            padding-inline-start: 2em;
+        }
+        &__number {
+            display: block;
+            margin-block-end: .1em;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: $accentColor;
+        }
+        &__title {
+            display: block;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 800;
+            outline: none;
+            color: $veryDarkBlue;
+            margin-block-end: .3em;
+            transition: color .3s;
+
+                &:hover, &:focus-visible {
+                    color: $accentColor;
+                }
+        }
+        &__text {
+            font-size: 1.3rem;
+            color: $darkBlue;
+        }
+}
+
+
+// ARIA
+.nav__burger-btn[aria-expanded='true']{
+    position: fixed;
+}
+.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--top{
+    transform: translateY(12px) rotate(45deg);
+}
+.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--bottom{
+    transform: translateY(-12px) rotate(-45deg);
+}
+.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--middle{
+   opacity: 0;
+}
+
+
+
+// ============ MEDIA ============
+
+@media(400px <= width) {
+    .nav {
+
+        &__links-mobile {
+            width: 300px;
+            align-items: flex-start;
+        }
+        &__link {
+            padding-inline-start: 1.5em;
+        }
+    }
+
+
+    .cards {
+            &__number {
+                font-size: 3rem;
+
+            }
+            &__title {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: $veryDarkBlue;
+            }
+            &__text {
+                font-size: 1.4rem;
+                color: $darkBlue;
+            }
+    }
+}
+
+
+@media(576px <= width) {
+    .header {
+        &__content-left-title {
+            font-size: 2rem;
+        }
+        &__content-left-info {
+            font-size: 1.8rem;
+        }
+    }
+
+    .cards {
+
+            &__card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            &__number {
+
+                font-size: 3.2rem;
+
+            }
+            &__title {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: $veryDarkBlue;
+
+            }
+            &__text {
+                font-size: 1.5rem;
+                color: $darkBlue;
+            }
+    }
+
+}
+
+
+
+@media(768px <= width) {
+    .overlay.active {
+        display: none;
+    }
+    .nav {
+
+        &__burger-btn {
+            display: none;
+        }
+        &__links-desktop {
+            display: flex;
+            align-items: center;
+        }
+        &__links-mobile {
+            display: none;
+        }
+        &__link {
+            color: $darkBlue;
+            font-size: 1.8rem;
+        }
+    }
+
+    .header {
+        .wrapper {
+            padding: 3em 2em;
+        }
+
+        &__main-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__btn {
+            padding: 1.5em 3em;
+        }
+        &__img {
+            height: 300px;
+            &--mobile {
+                display: none;
+            }
+            &--desktop {
+                display: block;
+            }
+        }
+        &__content-left {
+            width: 58%;
+        }
+        &__content-right {
+            width: 40%;
+        }
+        &__content-left-box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &__content-left-title {
+            width: 100%;
+            font-size: 2.2rem;
+        }
+        &__content-left-info {
+            width: 100%;
+        }
+
+        &__content-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        &__content-right-main-title {
+            font-size: 3.5rem;
+        }
+        &__content-right-title {
+            font-size: 1.9rem;
+        }
+        &__content-right-text {
+            font-size: 1.6rem;
+        }
+    }
+
+    .cards {
+        padding: 0 2em 5em;
+            &__box {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            &__card {
+                margin: 2em 1em;
+                width: 100%;
+                justify-content: center;
+
+                &--two {
+                    text-align: right;
+
+                        .cards__card-body {
+                            padding-inline-start: 0;
+                            padding-inline-end: 2em;
+                        }
+                }
+            }
+            &__card-img {
+                &--two {
+                    order: 1;
+                }
+            }
+            &__card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 600px;
+            }
+            &__number {
+                font-size: 3.5em;
+                margin: 0;
+            }
+            &__title {
+                font-size: 2.1rem;
+                color: $veryDarkBlue;
+                margin: .5em 0;
+            }
+            &__text {
+                font-size: 1.8rem;
+                color: $darkBlue;
+            }
+    }
+
+
+}
+
+
+@media(992px <= width) {
+    .header {
+        &__content-left-title {
+            font-size: 2.7rem;
+        }
+        &__content-left {
+            width: 62%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        &__img {
+            height: 350px;
+        }
+        &__content-right {
+            width: 35%;
+            padding: 4em;
+        }
+        &__content-left-box {
+            margin-block-start: 1em;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__content-left-title {
+            width: 45%;
+            padding: 0;
+        }
+        &__content-left-info {
+            width: 50%;
+        }
+        &__content-left {
+            margin: 0;
+        }
+        &__btn {
+            margin-block-start: 2em;
+        }
+
+        &__content-right-main-title {
+            font-size: 4rem;
+        }
+        &__content-right-title {
+            font-size: 2.1rem;
+        }
+
+        .square {
+            width: 25px;
+        }
+    }
+
+    .cards {
+        padding: 5em 2em 5em;
+            &__box {
+                flex-wrap: nowrap;
+            }
+            &__card {
+                margin: 0 2em;
+                width: 30%;
+
+                &--two {
+                    text-align: left;
+
+                        .cards__card-body {
+                            padding-inline-start: 2em;
+                            padding-inline-end: 0;
+                        }
+                }
+            }
+
+            &__card-img {
+                &--two {
+                    order: 0;
+                }
+            }
+            &__number {
+                font-size: 3.5em;
+                margin: 0;
+            }
+            &__title {
+                font-size: 1.8rem;
+            }
+            &__text {
+                font-size: 1.4rem;
+                line-height: 25px;
+            }
+    }
+
+}

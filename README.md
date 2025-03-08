@@ -5,7 +5,7 @@
 
 ## Deploying your project
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/98943866-d56b-4ff1-a41d-0a11f3415884/deploy-status)](https://app.netlify.com/sites/new-homepage-main-jasmine-site/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98943866-d56b-4ff1-a41d-0a11f3415884/deploy-status)](https://new-homepage-main-jasmine-site.netlify.app/)
 
 ## Welcome! 👋
 

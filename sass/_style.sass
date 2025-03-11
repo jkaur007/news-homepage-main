@@ -31,7 +31,7 @@ body {
     max-width: 1200px;
 }
 
-.overlay {
+.page-overlay {
     display: none;
     position: absolute;
     inset: 0;
@@ -98,7 +98,7 @@ img {
         padding: 1em;
         z-index: 200;
     }
-    &__burger-btn {
+    &__toggle-btn {
         position: absolute;
         padding: 1em;
         top: 1.7em;
@@ -114,12 +114,12 @@ img {
             }
 
     }
-    &__burger-btn-box {
+    &__toggle-btn-box {
         position: relative;
         width: 50px;
         height: 30px;
     }
-    &__burger-btn-bar {
+    &__toggle-btn-bar {
         position: absolute;
         left: 0;
         width: 100%;
@@ -303,16 +303,16 @@ img {
 
 
 // ARIA
-.nav__burger-btn[aria-expanded='true']{
+.nav__toggle-btn[aria-expanded='true']{
     position: fixed;
 }
-.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--top{
+.nav__toggle-btn[aria-expanded='true'] .nav__toggle-btn-bar--top{
     transform: translateY(12px) rotate(45deg);
 }
-.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--bottom{
+.nav__toggle-btn[aria-expanded='true'] .nav__toggle-btn-bar--bottom{
     transform: translateY(-12px) rotate(-45deg);
 }
-.nav__burger-btn[aria-expanded='true'] .nav__burger-btn-bar--middle{
+.nav__toggle-btn[aria-expanded='true'] .nav__toggle-btn-bar--middle{
    opacity: 0;
 }
 
@@ -390,12 +390,12 @@ img {
 
 
 @media(768px <= width) {
-    .overlay.active {
+    .page-overlay.active {
         display: none;
     }
     .nav {
 
-        &__burger-btn {
+        &__toggle-btn {
             display: none;
         }
         &__links-desktop {

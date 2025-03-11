@@ -1,32 +1,34 @@
-const menuButton = document.querySelector('.nav-toggle-btn')
-const mobileNav = document.querySelector('.nav__links-mobile')
-const pageOverlay = document.querySelector('.page-overlay')
-const mobileNavLinks = document.querySelectorAll('.nav__links-mobile .nav__link')
 
-const closeMobileNav = () => {
-    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
-        mobileNav.classList.remove('active')
-        pageOverlay.classList.remove('active')
-        menuButton.setAttribute('aria-expanded', 'false')
+const burgerBtn = document.querySelector('.nav__burger-btn')
+const sideNavbar = document.querySelector('.nav__links-mobile')
+const overlay = document.querySelector('.overlay')
+const navLinks = document.querySelectorAll('.nav__links-mobile .nav__link')
+
+
+const closeNavbar = () => {
+    navLinks.forEach(link => link.addEventListener('click', () => {
+        sideNavbar.classList.remove('active')
+        overlay.classList.remove('active')
+        burgerBtn.setAttribute('aria-expanded', 'false')
     }))
 }
 
-menuButton.addEventListener('click', () => {
-    const isOpened = menuButton.getAttribute('aria-expanded')
+burgerBtn.addEventListener('click', () => {
+    const isOpened = burgerBtn.getAttribute('aria-expanded')
 
-    mobileNav.classList.toggle('active')
-    pageOverlay.classList.toggle('active')
+    sideNavbar.classList.toggle('active')
+    overlay.classList.toggle('active')
     if(isOpened === 'true'){
-        menuButton.setAttribute('aria-expanded', 'false')
-    } else {
-        menuButton.setAttribute('aria-expanded', 'true')
+        burgerBtn.setAttribute('aria-expanded', 'false')
+    }else {
+        burgerBtn.setAttribute('aria-expanded', 'true')
     }
 
-    closeMobileNav()
+    closeNavbar()
 })
 
-pageOverlay.addEventListener('click', () => {
-    mobileNav.classList.remove('active')
-    pageOverlay.classList.remove('active')
-    menuButton.setAttribute('aria-expanded', 'false')
+overlay.addEventListener('click', () => {
+    sideNavbar.classList.remove('active')
+    overlay.classList.remove('active')
+    burgerBtn.setAttribute('aria-expanded', 'false')
 })
